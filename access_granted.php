@@ -5,7 +5,7 @@
         <!--Navigation-->
         <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top" style="padding-top: 0; padding-bottom: 0;">
             <div class="container">
-                <a style="color: #121668;" class="navbar-brand" href="index.php"><img src="img/logo.png" width="70" /> <b>Hi, Casweeney Ojukwu</b></a>
+                <a style="color: #121668;" class="navbar-brand" href="index.php"><img src="img/logo.png" width="70" /> <b>TopUps.ng</b></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                     <span class="navbar-toggler-icon"></span>
                 </button>

@@ -15,7 +15,7 @@
                                 Airtime Virtual Top Up (VTU) API is available for developers with instant setup.
                             </p>
                             <br>
-                            <a style="border-radius: 0;" class="btn btn-warning" href="signin.php">Instant Topup</a>
+                            <a style="border-radius: 0;" class="btn btn-warning" href="instant_topup.php">Instant Topup</a>
                             <a style="border-radius: 0;" class="btn btn-danger" href="signup.php">Register</a>
                         </div>
                     </div>
