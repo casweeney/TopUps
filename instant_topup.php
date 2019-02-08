@@ -30,7 +30,7 @@
                                     </select>
                                   </div>
                                   <div class="form-group">
-                                    <input type="number" placeholder="Phone number" class="form-control" id="phone">
+                                    <input type="number" placeholder="Recharge Amount" class="form-control" id="amount">
                                   </div>
                                   <center><button type="submit" class="btn btn-info" style="padding-right: 20%; padding-left: 20%; border-radius: 2px;">Buy Airtime</button></center>
                                 </form>

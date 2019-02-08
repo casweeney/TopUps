@@ -14,8 +14,10 @@
                         <div class="card" id="signup_card">
                             <br>
                             <h4 class="text-center text-info">Sign up</h4>
+                            <span class="text-danger text-center" id="dist" style="display: none;"></span>
+                            <b id="successful" class="text-center"></b>
                             <div class="card-body">
-                                <form action="/action_page.php">
+                                <!-- <form method="POST"> -->
                                   <div class="form-group">
                                     <input type="text" placeholder="Fullname" class="form-control" id="fname">
                                   </div>
@@ -29,21 +31,12 @@
                                     <input type="password" placeholder="Choose password" class="form-control" id="pwd">
                                   </div>
                                   <div class="form-group">
-                                    <input type="password" placeholder="Confirm password" class="form-control" id="pwd">
+                                    <input type="password" placeholder="Confirm password" class="form-control" id="cpwd">
                                   </div>
-                                  <div class="form-group form-check">
-                                    <label class="form-check-label">
-                                      <input class="form-check-input" type="checkbox"> <span style="font-size: 12px;">By click this, I agree to the terms and conditions</span>
-                                    </label>
-                                  </div>
-                                  <center><button type="submit" class="btn btn-info" style="padding-right: 20%; padding-left: 20%; border-radius: 2px;">Sign up</button></center>
-                                </form>
+                                  <center><button id="signUpBtn" class="btn btn-info" style="padding-right: 20%; padding-left: 20%; border-radius: 2px;">Sign up</button></center>
+                                <!-- </form> -->
                                 <br>
                                 <center><a href="signin.php" class="btn btn-default text-info" style="padding-right: 20%; padding-left: 20%; border-radius: 2px;">Sign in</a></center>
-                            </div>
-                            <div class="card-footer">
-                                <p class="text-dark text-center" style="font-size: 12px;">or sign up with</p>
-                                <center><button type="submit" class="btn btn-outline-secondary">Google</button>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-outline-info">Facebook</button></center>
                             </div>
                         </div>
                     </div>
@@ -57,3 +50,55 @@
         <?php include_once("inc/modal.php"); ?>
     </body>
 </html>
+<script>
+  $(document).ready(function(){
+    $("#signUpBtn").click(function(){
+      var fullName = $("#fname").val();
+      var phone = $("#phone").val();
+      var email = $("#email").val();
+      var password = $("#pwd").val();
+      var cpassword = $("#cpwd").val();
+
+      var dataString = 'fullName1='+ fullName + '&phone1=' + phone +'&email1=' + email + '&password1=' + password + '&cpassword1=' + cpassword;
+
+      if(fullName=="" || phone=="" || email=="" || password=="" || cpassword==""){
+        $("#dist").html("Please fill all field").show("slide").delay("1000");
+        $("#signup_card").effect("shake", "slow");
+      } 
+      else if(!phone.match(/^[0-9]+$/)){
+        $("#dist").html("Phone field should contain only numbers").show("slide").delay("1000");
+        $("#signup_card").effect("shake", "slow");  
+      }
+      else if(phone.length < 11 || phone.length > 11){
+        $("#dist").html("Type a complete or valid phone number").show("slide").delay("1000");
+        $("#signup_card").effect("shake", "slow"); 
+      }
+      else if(!password.match(/^[0-9a-zA-Z]+$/)){
+        $("#dist").html("Password field should contain only letters numbers").show("slide").delay("1000");
+        $("#signup_card").effect("shake", "slow"); 
+      }
+      else if(password !== cpassword){
+        $("#dist").html("Passwords mismatch").show("slide").delay("1000");
+        $("#signup_card").effect("shake", "slow"); 
+      } else{
+        $("#dist").html("");
+        $.ajax({
+          type: "POST",
+            url: "signup_processor.php",
+            data: dataString,
+            cache: false,
+            success: function(result){
+              $("#dist").html(result).show("slide").delay("1000");
+              if(result == "<span class='text-success text-center'>Signup successful</span>"){
+                $("#successful").html("Redirecting to Login...").css("color","#c60").delay("1000");
+                if($("#successful").html() == "Redirecting to Login..."){
+                    window.location.assign("signin.php");
+                }
+              }
+            }
+        });
+      }
+      return false;
+    });
+  });
+</script>

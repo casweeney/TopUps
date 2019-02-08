@@ -3,12 +3,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TopUps.ng</title>
     <link rel="stylesheet" href="css/bootstrap.css" />
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/font-awesome.css" />
     <link href="style.css" rel="stylesheet" />
     <link rel='shortcut icon' href='img/logo.png' />
+    <link type='text/css' href="css/jquery-ui.min.css" rel="stylesheet">
+    <!--Scripts-->
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <style type="text/css">
         ::-webkit-scrollbar {
           width: 5px;
