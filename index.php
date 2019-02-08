@@ -20,8 +20,21 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <br>
-                        <center><img class="img-fluid" src="img/phone1.png"/></center>
+                        <center><img class="img-fluid" style="width: 60%;" src="img/phone1.png"/></center>
+                        <div class="row">
+                            <div class="col-md-3 col-3">
+                                <center><img src="img/mtn.png" class="img-fluid rounded-circle"></center>
+                            </div>
+                            <div class="col-md-3 col-3">
+                                <center><img src="img/glo.png" class="img-fluid rounded-circle"></center>
+                            </div>
+                            <div class="col-md-3 col-3">
+                                <center><img src="img/airtel.png" class="img-fluid rounded-circle"></center>
+                            </div>
+                            <div class="col-md-3 col-3">
+                                <center><img src="img/9mobile.png" class="img-fluid rounded-circle"></center>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

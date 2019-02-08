@@ -8,6 +8,7 @@
     $password = Database::escaped_string($_POST['password1']);
     $cpassword = Database::escaped_string($_POST['cpassword1']);
     $hash = sha1(md5($password));
+    $account_balance = 0.00;
     if(empty($fullName) || empty($email) || empty($phone) || empty($password)){
         echo "<span class='text-danger'>Sorry! Name, Email, Phone number and Password are Required</span>";
     }
@@ -30,7 +31,7 @@
             if(mysqli_num_rows($result) > 0){
                 echo "<span class='text-danger'>Sorry! This email already exist</span>";  
             }else{
-                $sql = "INSERT INTO users(fullname, phone, email, password) VALUES('$fullName', '$phone', '$email', '$hash')";
+                $sql = "INSERT INTO users(fullname, phone, email, password, account_balance) VALUES('$fullName', '$phone', '$email', '$hash', '$account_balance')";
                 $result = Database::query($sql);
                 if($result){
                     echo "<span class='text-success text-center'>Signup successful</span>";

@@ -8,6 +8,7 @@
 		public $phone;
 		public $password;
 		public $created_at;
+		public $account_balance;
 
 		public function find_all_users(){
 			return self::find_by_sql("SELECT * FROM users");

@@ -1,6 +1,13 @@
 <?php
 require_once("app/session.php");
-require_once("app/functions.php");
+require_once("app/controller.php");
+$user = User::find_by_id($user_session->user_id);
+$user_id = prepare_input($user->id);
+$user_name = prepare_input($user->fullname);
+$user_phone = prepare_input($user->phone);
+$user_email = prepare_input($user->email);
+$account_balance = prepare_input($user->account_balance);
+
 if(!$user_session->is_logged_in()){
     redirect_to("signin.php");
 }else{

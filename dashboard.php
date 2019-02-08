@@ -1,5 +1,5 @@
             <div class="container">
-                <h3 class="text-white text-center">Welcome Casweeney Ojukwu</h3>
+                <h3 class="text-white text-center">Welcome <?php echo $user_name; ?></h3>
                 <div class="row text-center">
                     <div class="col-md-3">                        
                         
@@ -7,7 +7,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4>NGN 0.00</h4>
+                                <h4>NGN <?php echo $account_balance; ?></h4>
                                 <div class="underliner"></div>
                                 <h5>Account Balance</h5>
                             </div>
