@@ -1,3 +1,7 @@
+<?php
+    require_once("app/session.php");
+    require_once("app/functions.php");
+?>
 <!--Navigation-->
 <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top" style="padding-top: 0; padding-bottom: 0;">
     <div class="container">
@@ -10,8 +14,19 @@
                 <li class="nav-item"><a class="nav-link" href="instant_topup.php">Instant Topup</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">Contact</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="signin.php">Login</a></li>
-                <li class="nav-item"><a style="color: #fff; font-weight: 100;" class="nav-link btn btn-danger" href="signup.php">Register</a></li>
+                <?php
+                    if($user_session->is_logged_in()){
+                        ?>
+                            <li class="nav-item"><a class="nav-link" href="./access_granted.php">Dashboard</a></li>
+                            <li class="nav-item"><a style="color: #fff; font-weight: 100;" class="nav-link btn btn-danger" href="./access_granted.php?logout">Logout</a></li>
+                        <?php
+                    }else{
+                        ?>
+                            <li class="nav-item"><a class="nav-link" href="signin.php">Login</a></li>
+                            <li class="nav-item"><a style="color: #fff; font-weight: 100;" class="nav-link btn btn-danger" href="signup.php">Register</a></li>
+                        <?php
+                    }
+                ?>
             </ul>
         </div>
     </div>
