@@ -16,6 +16,7 @@
                             <h4 class="text-center text-info">Sign up</h4>
                             <span class="text-danger text-center" id="dist" style="display: none;"></span>
                             <b id="successful" class="text-center"></b>
+                            <center><img id="loading" src="img/loading.gif" class="img-fluid" style="width: 10%; display: none;"></center>
                             <div class="card-body">
                                 <!-- <form method="POST"> -->
                                   <div class="form-group">
@@ -82,6 +83,7 @@
         $("#signup_card").effect("shake", "slow"); 
       } else{
         $("#dist").html("");
+        $("#loading").show().delay("1000");
         $.ajax({
           type: "POST",
             url: "signup_processor.php",
@@ -94,6 +96,9 @@
                 if($("#successful").html() == "Redirecting to Login..."){
                     window.location.assign("signin.php");
                 }
+              }else{
+                $("#loading").hide();
+                $("#dist").html(result).show("slide").effect("shake","slow"); 
               }
             }
         });

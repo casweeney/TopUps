@@ -9,7 +9,7 @@
     $cpassword = Database::escaped_string($_POST['cpassword1']);
     $hash = sha1(md5($password));
     $account_balance = 0.00;
-    if(empty($fullName) || empty($email) || empty($phone) || empty($password)){
+    if($fullName=="" || $email=="" || $phone=="" || $password==""){
         echo "<span class='text-danger'>Sorry! Name, Email, Phone number and Password are Required</span>";
     }
     elseif(!single_email_validator($email)){
