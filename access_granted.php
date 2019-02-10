@@ -1,17 +1,29 @@
 <?php
 require_once("app/session.php");
 require_once("app/controller.php");
-$user = User::find_by_id($user_session->user_id);
-$user_id = prepare_input($user->id);
-$user_name = prepare_input($user->fullname);
-$user_phone = prepare_input($user->phone);
-$user_email = prepare_input($user->email);
-$account_balance = prepare_input($user->account_balance);
-
 if(!$user_session->is_logged_in()){
     redirect_to("signin.php");
 }else{
-    ?>
+    $user = User::find_by_id($user_session->user_id);
+    $user_id = prepare_input($user->id);
+    $user_name = prepare_input($user->fullname);
+    $user_phone = prepare_input($user->phone);
+    $user_email = prepare_input($user->email);
+    $account_balance = prepare_input($user->account_balance);
+    ?>  
+
+        <!--        
+            AUTHOR : CASWEENEY C. OJUKWU
+            POSITION: WEB MASTER | FRONT-END/BACK-END DEVELOPER
+            
+            DATE: 15TH MARCH, 2018.
+            ALL RIGHTS RESERVED
+            CREDITS TO:
+                ...Twitter Bootstrap 4
+                ...jQuery UI
+                ...jQuery
+                ...Font-Awesome
+        -->
         <!DOCTYPE html>
         <html lang="en">
             <?php include_once("inc/head.php"); ?>
@@ -41,7 +53,7 @@ if(!$user_session->is_logged_in()){
                     </div>
                 </nav>
 
-                <div id="banner" style="height: 100%;">
+                <div id="banner">
                     <br><br>
                         <?php
                             if(isset($_GET['fund_account'])){
@@ -67,6 +79,7 @@ if(!$user_session->is_logged_in()){
                 </div>
             </body>
         </html>
+        <!-- place below the html form -->
     <?php
     }
 ?>
