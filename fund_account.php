@@ -11,7 +11,7 @@
                                   <div class="form-group">
                                     <span id="direct" class="text-danger" style="display: none;">Enter amount to fund your account</span>
                                     <input type="number" onfocus="verify()" placeholder="Amount" class="form-control" id="amount">
-                                    <span id="info" class="text-danger" style="display: none;">Fill funding amount first</span>
+                                    <span id="info" class="text-danger" style="display: none; font-weight: bold;">Fill funding amount first</span>
                                   </div>
                                   <center><button id="fundNow" type="button" onclick="check()" class="btn btn-info" style="padding-right: 20%; padding-left: 20%; border-radius: 2px;">Proceed</button></center>
                                 </form>
@@ -23,6 +23,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="text-center">Bank Transfer - Cash Deposit</h4>
+                                <b id="feedback"></b>
                                 <p class="text-info">
                                     Pay via cash deposit, internet banking, mobile banking transfer to any of the accounts below; <br><br>
 
@@ -31,14 +32,17 @@
                                     Bank: First Bank
                                 </p>
                                 <br>
-                                <form action="/action_page.php">
+                                <b id="errorMsg" class="text-danger" style="display: none;">All fields required</b>
+                                <form onsubmit="return false;" method="POST">
                                   <div class="form-group">
-                                    <input type="number" placeholder="Amount" class="form-control" id="amount">
+                                    <input type="number" placeholder="Amount" onfocus="sayit()" class="form-control" id="transferAmount">
+                                    <span id="showit1" class="text-danger" style="display: none;">Tell us how much you transfered</span>
                                   </div>
                                   <div class="form-group">
-                                    <textarea class="form-control" placeholder="Please state sender account name and bank."></textarea>
+                                    <textarea id="details" onfocus="tellit()" class="form-control" placeholder="Please state sender account name and bank."></textarea>
+                                    <span id="showit2" class="text-danger" style="display: none;">Tell us who sent the money and bank used</span>
                                   </div>
-                                  <center><button type="submit" class="btn btn-info" style="padding-right: 20%; padding-left: 20%; border-radius: 2px;">Send Payment Notification</button></center>
+                                  <center><button type="submit" onclick="send()" id="noticeBtn" class="btn btn-info" style="padding-right: 20%; padding-left: 20%; border-radius: 2px;">Send Payment Notification</button><img id="loading" src="img/loading.gif" class="img-fluid" style="width: 10%; margin-top: -2%; display: none;"></center>
                                 </form>
                                 <br>   
                             </div>
@@ -48,6 +52,39 @@
                 </div>
             </div>
             <script>
+              
+              function sayit(){
+                $("#showit2").hide(); $("#showit1").show("slideUp");
+              }
+              function tellit(){
+                $("#showit1").hide(); $("#showit2").show("slideUp");
+              }
+              function send(){
+                var transferedAmount = $("#transferAmount").val();
+                var transferedNote = $("#details").val();
+                var dataString = 'transferedAmount1=' + transferedAmount + '&transferedNote1=' + transferedNote;
+                if(transferedAmount=="" || transferedNote==""){
+                    $("#showit1").hide(); $("#showit2").hide(); $("#errorMsg").show("slide");
+                } else{
+                    $("#showit1").hide(); $("#showit2").hide(); $("#loading").show();
+                    $.ajax({
+                        type: "POST",
+                        url: "funding_transfer.php",
+                        data: dataString,
+                        cache: false,
+                        success: function(response){
+                            $("#loading").hide();
+                            if(response == "Payment details has been sent, please wait for verification"){
+                                alert(response);
+                                window.location.assign("access_granted.php")
+                            } else{
+                                $("#feedback").html(response);
+                            }
+                        }
+                    });
+                }
+              }
+
               function fundWallet(){
                 var funding_amount = $("#amount").val();
                 var dataString = 'funding_amount1=' + funding_amount;
