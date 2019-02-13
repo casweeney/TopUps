@@ -13,11 +13,17 @@
                                   </div>
                                   <div class="form-group">
                                     <select class="form-control">
-                                        <option selected>Select Mobile Network</option>
-                                        <option>MTN</option>
-                                        <option>GLO</option>
-                                        <option>Airtel</option>
-                                        <option>9mobile</option>
+                                        <option selected value="">Select Mobile Network</option>
+                                        <?php
+                                            $networks = Network::get_all_networks();
+                                            foreach($networks as $network){
+                                                $network_id = $network->id;
+                                                $network_name = $network->network_name;
+                                                echo "
+                                                    <option value='{$network_id}'>{$network_name}</option>
+                                                ";
+                                            }
+                                        ?>
                                     </select>
                                   </div>
                                   <div class="form-group">

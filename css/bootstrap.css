@@ -2673,8 +2673,8 @@ fieldset:disabled a.btn {
 
 .btn-dark-green {
   color: #fff;
-  background-color: #006848;
-  border-color: #006848;
+  background-color: #c7d42f;
+  border-color: #c7d42f;
 }
 
 .btn-dark-green:hover {
@@ -8901,11 +8901,11 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-dark-green {
-  color: #006848 !important;
+  color: #c7d42f !important;
 }
 
 a.text-dark-green:hover, a.text-dark-green:focus {
-  color: #006848 !important;
+  color: #c7d42f !important;
 }
 
 .text-muted {

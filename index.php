@@ -6,7 +6,7 @@
         <div id="banner">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                         <div class="content">
                             <h1>Mobile Data and Airtime on the go</h1>
                             <p>
@@ -19,7 +19,7 @@
                             <a style="border-radius: 0;" class="btn btn-danger" href="signup.php">Register</a>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-sm-6">
                         <center><img class="img-fluid" style="width: 60%;" src="img/phone1.png"/></center>
                         <div class="row">
                             <div class="col-md-3 col-3">
@@ -56,7 +56,7 @@
             <div class="container">
                 <h2 class="text-center" style="color: #064361;">Mobile Networks Available</h2>
                 <div class="row text-center">
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <h1 class="text-warning"><strong>MTN</strong></h1>
@@ -69,7 +69,7 @@
                         </div>    
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <h1 class="text-success"><strong>GLO</strong></h1>
@@ -82,7 +82,7 @@
                         </div>    
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <h1 class="text-danger"><strong>Airtel</strong></h1>
@@ -95,7 +95,7 @@
                         </div>    
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <h1 class="text-dark-green"><strong>9mobile</strong></h1>

@@ -28,6 +28,10 @@
 			$escaped_string = htmlspecialchars($escaped_string);
 			return $escaped_string;
 		}
+
+		public static function inject_checker($field){
+	        return (htmlspecialchars(htmlentities(trim(mysqli_real_escape_string(self::$connection, $field)))));
+	    }
 	}
 
 	$database = new Database();

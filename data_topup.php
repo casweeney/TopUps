@@ -12,22 +12,23 @@
                                     <input type="number" placeholder="Phone number" class="form-control" id="phone">
                                   </div>
                                   <div class="form-group">
-                                    <select class="form-control">
-                                        <option selected>Select Mobile Network</option>
-                                        <option>MTN</option>
-                                        <option>GLO</option>
-                                        <option>Airtel</option>
-                                        <option>9mobile</option>
+                                    <select name="net" id="choose" class="form-control">
+                                        <option selected value="">Select Mobile Network</option>
+                                        <?php
+                                            $networks = Network::get_all_networks();
+                                            foreach($networks as $network){
+                                                $network_id = $network->id;
+                                                $network_name = $network->network_name;
+                                                echo "
+                                                    <option value='{$network_id}'>{$network_name}</option>
+                                                ";
+                                            }
+                                        ?>
                                     </select>
                                   </div>
                                   <div class="form-group">
-                                    <select class="form-control">
-                                        <option selected>Select Price</option>
-                                        <option value='60000'>1 GB - #600</option>
-                                        <option value='110000'>2 GB - #1100</option>
-                                        <option value='160000'>3 GB - #1600</option>
-                                        <option value='220000'>4 GB - #2200</option>
-                                        <option value='280000'>5 GB - #2800</option>
+                                    <select class="form-control" id="bundles">
+                                        
                                     </select>
                                   </div>
                                   <center><button type="submit" class="btn btn-info" style="padding-right: 20%; padding-left: 20%; border-radius: 2px;">Send Data</button></center>
@@ -41,3 +42,20 @@
                     </div>
                 </div>
             </div>
+            <script>
+                $(document).ready(function(){
+                    var hm;
+                    $("#choose").change(function(){
+                        var str = $("#choose").val();
+                        $.post("bundles.php?net", {net:str}, function(response){
+                            data = JSON.parse(response);
+                            var disp = data.length-1;
+                            for(i=0;i<=disp;i++){
+                                hm += "<option>" + data[i].data_price +"</option>";
+                            }
+                            $("#bundles").html(hm);
+                            hm="";
+                        });
+                    });
+                });
+            </script>

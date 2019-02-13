@@ -20,40 +20,4 @@
                         
                     </div>
                 </div>
-
-                <div class="row text-center">
-                    <div class="col-md-6"> 
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Airtime Topup History</h5>
-                            </div>
-                            <div class="card-body">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Mobile Data Topup History</h5>
-                            </div>
-                            <div class="card-body">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-md-12">                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>All Transaction Records</h5>
-                            </div>
-                            <div class="card-body">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>

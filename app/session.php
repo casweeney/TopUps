@@ -1,5 +1,5 @@
 <?php
-	
+	ob_start();	
 	class UserSession {
 
 		private $logged_in = false;

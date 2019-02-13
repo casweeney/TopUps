@@ -7,12 +7,12 @@
     <link href="style.css" rel="stylesheet" />
     <link rel='shortcut icon' href='img/logo.png' />
     <link type='text/css' href="css/jquery-ui.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./datatables/dataTables.bootstrap4.css">
     <!--Scripts-->
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    
     <style type="text/css">
         ::-webkit-scrollbar {
           width: 5px;

@@ -44,6 +44,7 @@
                                   </div>
                                   <center><button type="submit" onclick="send()" id="noticeBtn" class="btn btn-info" style="padding-right: 20%; padding-left: 20%; border-radius: 2px;">Send Payment Notification</button><img id="loading" src="img/loading.gif" class="img-fluid" style="width: 10%; margin-top: -2%; display: none;"></center>
                                 </form>
+                                <input id="email" name="" hidden value=<?php echo "{$user_email}"; ?>>
                                 <br>   
                             </div>
                         </div>
@@ -115,20 +116,11 @@
                 } else{
                     $("#info").hide();
                     function payWithPaystack(){
+                        var userMail = $("#email").val();
                         var handler = PaystackPop.setup({
-                          key: 'pk_test_fa07f1ea491bdde75b7871c0c734a54279fded82',
-                          email: 'customer@email.com',
+                          key: 'pk_live_81778779d2bd9646e1453ce89f6924e0588dfab2',
+                          email: userMail,
                           amount: funding_amount * 100,
-                          //ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-                          // metadata: {
-                          //    custom_fields: [
-                          //       {
-                          //           display_name: "Mobile Number",
-                          //           variable_name: "mobile_number",
-                          //           value: "+2348012345678"
-                          //       }
-                          //    ]
-                          // },
                           callback: function(response){
                               fundWallet();
                           },

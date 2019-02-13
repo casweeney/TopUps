@@ -2,7 +2,7 @@
     require_once("app/session.php");
     require_once("app/functions.php");
     if($user_session->is_logged_in()){
-        redirect_to("access_granted.php");
+        Method::redirect_to("access_granted.php");
     }
 ?>
 <!DOCTYPE html>
