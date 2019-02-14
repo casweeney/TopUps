@@ -118,11 +118,20 @@
                     function payWithPaystack(){
                         var userMail = $("#email").val();
                         var handler = PaystackPop.setup({
-                          key: 'pk_live_81778779d2bd9646e1453ce89f6924e0588dfab2',
+                          key: 'pk_test_27fee75a36f9504bfec3a7990169f4e4fd5f8fed',
                           email: userMail,
                           amount: funding_amount * 100,
+                          ref: ''+Math.floor((Math.random() * 1000000000) + 1),
                           callback: function(response){
-                              fundWallet();
+                            $.ajax({
+                              url: 'verify.php?reference=' + response.reference,
+                              method: 'post',
+                              success: function (data) {
+                                if(data == "Transaction was successful"){
+                                  fundWallet();
+                                }
+                              }
+                            });
                           },
                           onClose: function(){
                               //alert('window closed');
