@@ -5,6 +5,11 @@
         Method::redirect_to("../auth");
         die("Unauthorized Brute force");
     }else{
+        $admin = Admin::find_by_id($admin_session->admin_id);
+        $admin_id = Database::escaped_string($admin->id);
+        $admin_name = Database::escaped_string($admin->fullname);
+        $admin_phone = Database::escaped_string($admin->phone);
+        $admin_email = Database::escaped_string($admin->email);
         ?>
             <!DOCTYPE html>
             <html lang="en">

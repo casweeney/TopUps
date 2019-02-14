@@ -16,6 +16,7 @@
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 		<!-- Custom Theme files -->
 		<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+		<link rel='shortcut icon' href='../img/logo.png' />
 		<link type='text/css' href="../css/jquery-ui.min.css" rel="stylesheet">
 		<!--js-->
 		<script src="js/jquery-2.1.1.min.js"></script> 

@@ -19,31 +19,9 @@
             <li><a href="index.php?settings"><i class="fa fa-cog"></i> Settings</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right navbar-user">
-            <li class="dropdown messages-dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-header">2 New Messages</li>
-                    <li class="message-preview">
-                        <a href="#">
-                            <span class="avatar"><i class="fa fa-bell"></i></span>
-                            <span class="message">Security alert</span>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li class="message-preview">
-                        <a href="#">
-                            <span class="avatar"><i class="fa fa-bell"></i></span>
-                            <span class="message">Security alert</span>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
-                </ul>
-            </li>
             <li class="dropdown user-dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Steve Miller<b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $admin_name; ?><b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                     <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
                     <li class="divider"></li>
                     <li><a href="index.php?logout"><i class="fa fa-power-off"></i> Log Out</a></li>
