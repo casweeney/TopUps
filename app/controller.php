@@ -138,11 +138,12 @@
 	}
 
     class Admin {
-
 		public $id;
-		public $username;
+		public $fullname;
+		public $email;
+		public $phone;
 		public $password;
-		public $reg_date;
+		public $created_at;
 
 		public function find_all_admin(){
 			return self::find_by_sql("SELECT * FROM admin");
@@ -166,13 +167,13 @@
 			return $object_array;
 		}
 
-		public static function authenticate($username="", $password=""){
+		public static function authenticate($email="", $password=""){
 			global $database; // Calling the Database variable from the database.php file
-			$username = $database->escaped_string($username);
+			$email = $database->escaped_string($email);
 			$password = $database->escaped_string($password);
 
 			$sql = "SELECT * FROM admin ";
-			$sql .= "WHERE username = '{$username}' ";
+			$sql .= "WHERE email = '{$email}' ";
 			$sql .= "AND password = '{$password}' ";
 			$sql .= "LIMIT 1";
 

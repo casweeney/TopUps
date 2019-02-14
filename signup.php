@@ -90,7 +90,6 @@
             data: dataString,
             cache: false,
             success: function(result){
-              console.log(result);
               $("#dist").html(result).show("slide").delay("1000");
               if(result == "<span class='text-success text-center'>Signup successful</span>"){
                 $("#successful").html("Redirecting to Login...").css("color","#c60").delay("1000");

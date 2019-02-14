@@ -3,6 +3,7 @@ require_once("app/session.php");
 require_once("app/controller.php");
 if(!$user_session->is_logged_in()){
     Method::redirect_to("signin.php");
+    die("Unauthorized Brute force");
 }else{
     $user = User::find_by_id($user_session->user_id);
     $user_id = Database::escaped_string($user->id);
