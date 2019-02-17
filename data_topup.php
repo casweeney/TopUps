@@ -51,7 +51,7 @@
                             data = JSON.parse(response);
                             var disp = data.length-1;
                             for(i=0;i<=disp;i++){
-                                hm += "<option>" + data[i].data_price +"</option>";
+                                hm += "<option>" + data[i].data_price + " - " + data[i].data_desc + "</option>";
                             }
                             $("#bundles").html(hm);
                             hm="";

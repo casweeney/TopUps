@@ -16,14 +16,12 @@
             <li><a href="index.php?airtime_topups"><i class="fa fa-arrow-up"></i> Airtime Topups</a></li>
             <li><a href="index.php?networks_data"><i class="fa fa-arrow-up"></i> Networks & Data</a></li>
             <li><a href="index.php?add_admin"><i class="fa fa-arrow-right"></i> Add Admin</a></li>
-            <li><a href="index.php?settings"><i class="fa fa-cog"></i> Settings</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right navbar-user">
             <li class="dropdown user-dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $admin_name; ?><b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
-                    <li class="divider"></li>
+                    <!-- <li class="divider"></li> -->
                     <li><a href="index.php?logout"><i class="fa fa-power-off"></i> Log Out</a></li>
 
                 </ul>
