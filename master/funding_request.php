@@ -37,7 +37,7 @@
 					$not_verified = "Not Verified";
 					$sql = "SELECT * FROM funding_requests WHERE request_status = '{$not_verified}'";
 					$result = Database::query($sql);
-					if(mysqli_num_rows($result) > 0){
+					if($result->num_rows > 0){
 						$n=0;
 						echo"
 							<div class='table-responsive'>

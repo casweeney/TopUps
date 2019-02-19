@@ -17,12 +17,12 @@
     	}else{
     		$sql = "SELECT phone FROM admin WHERE phone = '{$phone}'";
             $result = Database::query($sql);
-            if(mysqli_num_rows($result) > 0){
+            if($result->num_rows > 0){
                 echo "<span class='text-danger'>Sorry! This number already exist</span>";
             }else{
             	$sql = " SELECT email FROM admin WHERE email = '{$email}' ";
                 $result = Database::query($sql);
-                if(mysqli_num_rows($result) > 0){
+                if($result->num_rows > 0){
                     echo "<span class='text-danger'>Sorry! This email already exist</span>";  
                 }else{
                 	$sql = "INSERT INTO admin(fullname, phone, email, password) VALUES('$fullname', '$phone', '$email', '$hash')";

@@ -12,7 +12,7 @@
 		}else{
 			$sql = "SELECT user_id FROM funding_requests WHERE request_status = '{$request_status}'";
 			$result = Database::query($sql);
-			if(mysqli_num_rows($result) == 1){
+			if($result->num_rows == 1){
 				echo "<span class='text-danger'>Your previous payment has not been verified please hold on</span>";
 			}else{
 				$sql = "INSERT INTO funding_requests(user_id,amount_transfered,bank_details,request_status) VALUES('$user_id','$transferedAmount','$transferedNote','$request_status')";

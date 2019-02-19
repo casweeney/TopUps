@@ -13,7 +13,7 @@
 
 		public static function query($sql){
 			$result = self::$connection->query($sql);
-			!$result ? die("Query failed ") : "";
+			!$result ? die("Query failed " /*.mysqli_error(self::$connection)*/) : "";
 			return $result;
 		}
 

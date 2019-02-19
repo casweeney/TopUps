@@ -8,6 +8,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <span id="message" style="display: none;" class="text-danger"></span>
+                                <span id="msg_success" style="display: none;" class="text-success"></span>
+                                <center><img id="loading" src="img/loading.gif" class="img-fluid" style="width: 10%; display: none;"></center>
                                 <form>
                                   <div class="form-group">
                                     <input type="number" placeholder="Phone number" class="form-control" id="phone">
@@ -32,6 +34,7 @@
                                   </div>
                                   <center><button type="button" class="btn btn-info" id="airtimeBtn" style="padding-right: 20%; padding-left: 20%; border-radius: 2px;">Recharge</button></center>
                                 </form>
+                                <input type="hidden" value="<?php echo $user_id; ?>" name="" id="userId">
                                 <br>    
                             </div>
                         </div>
@@ -48,6 +51,8 @@
                         var phoneNumber = $("#phone").val();
                         var network = $("#network").val();
                         var amount = $("#amount").val();
+                        var userId = $("#userId").val();
+                        var dataString = {"phoneNumber":phoneNumber, "network":network, "amount":amount, "userId":userId};
                         if(phoneNumber==""||phoneNumber.length<11||phoneNumber.length>11){
                             $("#message").html("Invalid phone number").show("slide");
                         }
@@ -58,12 +63,19 @@
                             $("#message").html("Type airtime amount").show("slide");    
                         } else{
                             $("#message").hide();
+                            $("#loading").show();
                             $.ajax({
                                 type: "POST",
-                                url: "https://mobilenig.net/api/airtime.php/?username=Topupsng&password=View@131&network="+network+"&phoneNumber="+phoneNumber+"&amount="+amount,
+                                url: "airtime_processor.php",
+                                data: dataString,
                                 cache: false,
                                 success: function(response){
-                                    alert(response);
+                                    $("#loading").hide();
+                                    $("#msg_success").html(response).show("slide");
+                                },
+                                error: function(response){
+                                    $("#loading").hide();
+                                    $("#message").html(response).show("slide");
                                 }
                             });
                         }

@@ -6,7 +6,7 @@
 		}else{
 			$sql = "SELECT network_name FROM network WHERE network_name = '{$add_network}'";
 			$result = Database::query($sql);
-			if(mysqli_num_rows($result) == 1){
+			if($result->num_rows == 1){
 				$msg = "<b>This network has already been added</b>";
 			}else{
 				$sql = "INSERT INTO network(network_name) VALUES('{$add_network}')";
@@ -30,7 +30,7 @@
 
 		$sql = "SELECT data_price FROM data_price WHERE network_id = '{$nets_id}' AND data_price = '{$data_price}'";
 		$result = Database::query($sql);
-		if(mysqli_num_rows($result) == 1){
+		if($result->num_rows == 1){
 			$msg = "This price already exist";
 		}else{
 			$sql = "INSERT INTO data_price(network_id,data_price,data_desc) VALUES('$nets_id','$data_price','$data_desc')";
@@ -66,7 +66,7 @@
 				<?php
 					$sql = "SELECT id,network_name FROM network";
 					$result = Database::query($sql);
-					if(mysqli_num_rows($result) > 0){
+					if($result->num_rows > 0){
 						$n=0;
 						echo"
 							<div class='table-responsive'>
@@ -121,7 +121,7 @@
 						<?php
 							$sql = "SELECT id, network_name FROM network";
 							$result = Database::query($sql);
-							if(mysqli_num_rows($result) > 0){
+							if($result->num_rows > 0){
 								while($row = Database::fetch_data($result)){
 									$net_id = $row['id'];
 									$net_name = $row['network_name'];
@@ -153,7 +153,7 @@
 					<?php
 						$sql = "SELECT id, network_name FROM network";
 						$result = Database::query($sql);
-						if(mysqli_num_rows($result) > 0){
+						if($result->num_rows > 0){
 							while($row = Database::fetch_data($result)){
 								$net_id = $row['id'];
 								$net_name = $row['network_name'];
