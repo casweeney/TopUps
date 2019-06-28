@@ -88,6 +88,7 @@
 			return self::find_by_sql("SELECT * FROM network");
 		}
 
+
 		public static function find_by_id($id=0){
 			global $database; // Calling the Database variable from the database.php file
 			$result_array = self::find_by_sql("SELECT * FROM network WHERE id = {$id} LIMIT 1");
