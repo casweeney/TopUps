@@ -100,6 +100,7 @@
                     }
                 });
               }
+              
               function verify(){
                 var funding_amount = $("#amount").val();
                 var fundBtn = $("#fundNow");
@@ -108,6 +109,7 @@
                     $("#direct").show("slideUp");
                 }
               }  
+
               function check(){
                 var funding_amount = $("#amount").val();
                 if(funding_amount==""){
